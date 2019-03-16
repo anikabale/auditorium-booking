@@ -1,0 +1,13 @@
+td{
+	width:100px;
+	height:40px;
+	text-align: center;
+	background: rgb(248, 248, 248);
+	font-size: 12pt;
+}
+th{
+	text-align: center;
+}
+table{
+	margin:auto;
+}
