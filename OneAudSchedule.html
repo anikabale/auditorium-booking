@@ -14,7 +14,14 @@
 	<!-- Proper rendering and touch zooming -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="C:\Users\Asus\Desktop\class booking\css\style.css">
+	<link rel="stylesheet" href="style.css">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Расписание на день ОДНОЙ аудитории</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+	
 	</head>
 	<body>
 	
@@ -27,9 +34,9 @@
 			<!--<div class="navbar-header"> <a href="#" class="navbar-brand">Список аудиторий</a></div>-->
 			<div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Список аудиторий</a></li>
-				<li><a href="#">Расписание по дням</a></li>
-				<li><a href="#">Редактирование брони</a></li>
+				<li class="active"><a href="AuditoriumsList.html">Список аудиторий</a></li>
+				<li><a href="DaySchedule.html">Расписание по дням</a></li>
+				<li><a href="BookingEditing.html">Редактирование брони</a></li>
 			</ul>
 			</div>
 		</div>
@@ -37,7 +44,7 @@
 		
 		<section>
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8">
 				<div class="table-responsive">
 				<table class="table-bordered">
 				<tr>
@@ -99,8 +106,37 @@
 				</table>
 				</div>
 			</div>
+			<div class="col-sm-3">
+				<div class="form-group">
+					<div class="input-group date" id="datetimepicker1">
+						<input type="text" class="form-control" />
+							<span class="input-group-addon">
+							<span class="glyphicon-calendar glyphicon">
+							</span>
+							</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
 		</div>
 		</section>
-		
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/moment-with-locales.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript">
+    $(function () {
+      $('#datetimepicker1').datetimepicker({
+	    locale: 'ru',
+		stepping:10,
+		format: 'DD.MM.YYYY',
+		defaultDate: moment('03.11.2017').format('DD.MM.YYYY'),
+		daysOfWeekDisabled:[0,6]
+	  });
+      $('#datetimepicker2').datetimepicker({
+	    locale: 'ru'
+	  });
+    });
+  </script>
 	</body>
 </html>
