@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head lang="ru">
+	<meta charset="utf-8">
+	<title>Аудитории</title>	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<!-- Proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="style.css">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Бронирование</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+	</head>
+	<body>
+	
+		<div class="page-header">
+			<h1>Бронь аудиторий</h1>
+		</div>
+		
+		<nav class="navbar navbar-default">
+		<div class = "container">
+			<!--<div class="navbar-header"> <a href="#" class="navbar-brand">Список аудиторий</a></div>-->
+			<div>
+			<ul class="nav navbar-nav">
+				<li><a href="AuditoriumsList.html">Список аудиторий</a></li>
+				<li><a href="DaySchedule.html">Расписание по дням</a></li>
+				<li class="active"><a href="BookingEditing.html">Редактирование брони</a></li>
+			</ul>
+			</div>
+		</div>
+		</nav>
+		
+		<section>
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Бронирование</h3>
+				<p>Дата</p>
+				<div class="form-group">
+					<div class="input-group date" id="datetimepicker1">
+						<input type="text" class="form-control" />
+							<span class="input-group-addon">
+							<span class="glyphicon-calendar glyphicon">
+							</span>
+							</span>
+					</div>
+				</div>
+				<p>Время</p>
+				<p>С</p>
+				<div class="form-group">
+                <div class="input-group" id="datetimepicker4">
+                    <input type="text" class="form-control"/>
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+				</div>
+				<p>ДО</p>
+				<div class="form-group">
+                <div class="input-group" id="datetimepicker5">
+                    <input type="text" class="form-control"/>
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+				</div>
+				<form name="f1">
+					Аудитория:
+						<select name="auditorium" id="s1">
+							<option value="1" >1</option>
+							<option value="2" >2</option>
+							<option value="3" >3</option>
+							<option value="4" >4</option>
+							<option value="5" >5</option>
+							<option value="6" >6</option>
+							<option value="7" >7</option>
+							<option value="8" >8</option>
+							<option value="9" >9</option>
+							<option value="10" >10</option>
+						</select>
+				</form>
+				<input type="button" onclick="f()" value="ПОДТВЕРДИТЬ">
+			</div>
+			
+			<div class="col-sm-6">
+				<h3>Редактирование брони</h3>
+				<p>Введите код брони</p>
+				<input type="text" size="25">
+				<p>Выберете необходимые пункты для изменения</p>
+				<p>Дата</p>
+				<div class="form-group">
+					<div class="input-group date" id="datetimepicker1">
+						<input type="text" class="form-control" />
+							<span class="input-group-addon">
+							<span class="glyphicon-calendar glyphicon">
+							</span>
+							</span>
+					</div>
+				</div>
+				<p>Время</p>
+				<p>С</p>
+				<div class="form-group">
+                <div class="input-group" id="datetimepicker4">
+                    <input type="text" class="form-control"/>
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+				</div>
+				<p>ДО</p>
+				<div class="form-group">
+                <div class="input-group" id="datetimepicker5">
+                    <input type="text" class="form-control"/>
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+				</div>
+				<form name="f1">
+					Аудитория:
+						<select name="auditorium" id="s1">
+							<option value="1" >1</option>
+							<option value="2" >2</option>
+							<option value="3" >3</option>
+							<option value="4" >4</option>
+							<option value="5" >5</option>
+							<option value="6" >6</option>
+							<option value="7" >7</option>
+							<option value="8" >8</option>
+							<option value="9" >9</option>
+							<option value="10" >10</option>
+						</select>
+				</form>
+				<input type="button" onclick="f()" value="ПОДТВЕРДИТЬ">
+			</div>
+		</div>
+		
+		
+		</section>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/moment-with-locales.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript">
+		$(function () {
+		$('#datetimepicker1').datetimepicker({
+	    locale: 'ru',
+		stepping:10,
+		format: 'DD.MM.YYYY',
+		defaultDate: moment('03.11.2017').format('DD.MM.YYYY'),
+		daysOfWeekDisabled:[0,6]
+		});
+		$('#datetimepicker2').datetimepicker({
+	    locale: 'ru'
+		});
+		});
+		</script>
+		<script>
+		$(function () {
+        $('#datetimepicker4').datetimepicker(
+            {format: 'HH:mm', locale: 'ru'}
+        );
+		});
+		</script>
+		<script>
+		$(function () {
+        $('#datetimepicker5').datetimepicker(
+            {format: 'HH:mm', locale: 'ru'}
+        );
+		});
+		</script>
+
+	</body>
+</html>
