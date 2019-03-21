@@ -100,7 +100,7 @@
 				<p>Выберете необходимые пункты для изменения</p>
 				<p>Дата</p>
 				<div class="form-group">
-					<div class="input-group date" id="datetimepicker1">
+					<div class="input-group date" id="datetimepicker6">
 						<input type="text" class="form-control" />
 							<span class="input-group-addon">
 							<span class="glyphicon-calendar glyphicon">
@@ -111,7 +111,7 @@
 				<p>Время</p>
 				<p>С</p>
 				<div class="form-group">
-                <div class="input-group" id="datetimepicker4">
+                <div class="input-group" id="datetimepicker7">
                     <input type="text" class="form-control"/>
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
@@ -120,7 +120,7 @@
 				</div>
 				<p>ДО</p>
 				<div class="form-group">
-                <div class="input-group" id="datetimepicker5">
+                <div class="input-group" id="datetimepicker8">
                     <input type="text" class="form-control"/>
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-calendar"></i>
@@ -166,6 +166,20 @@
 		});
 		});
 		</script>
+		<script type="text/javascript">
+		$(function () {
+		$('#datetimepicker6').datetimepicker({
+	    locale: 'ru',
+		stepping:10,
+		format: 'DD.MM.YYYY',
+		defaultDate: moment('03.11.2017').format('DD.MM.YYYY'),
+		daysOfWeekDisabled:[0,6]
+		});
+		$('#datetimepicker2').datetimepicker({
+	    locale: 'ru'
+		});
+		});
+		</script>
 		<script>
 		$(function () {
         $('#datetimepicker4').datetimepicker(
@@ -176,6 +190,20 @@
 		<script>
 		$(function () {
         $('#datetimepicker5').datetimepicker(
+            {format: 'HH:mm', locale: 'ru'}
+        );
+		});
+		</script>
+		<script>
+		$(function () {
+        $('#datetimepicker7').datetimepicker(
+            {format: 'HH:mm', locale: 'ru'}
+        );
+		});
+		</script>
+		<script>
+		$(function () {
+        $('#datetimepicker8').datetimepicker(
             {format: 'HH:mm', locale: 'ru'}
         );
 		});
