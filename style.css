@@ -11,3 +11,19 @@ th{
 table{
 	margin:auto;
 }
+
+body{
+	width:95%;
+	align: center;
+}
+.highlight{
+	background: rgb(248, 248, 248);
+}
+.ph{
+	background: rgb(26, 72, 118);
+	color: rgb(245, 249, 245);
+}
+
+p{
+	font-size: 16pt;
+}
