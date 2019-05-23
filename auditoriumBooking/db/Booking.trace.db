@@ -1,0 +1,604 @@
+2019-05-19 18:35:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE BOOKINGS (PRIMARY KEY ID[*] INT,USERID INT, DAY DATE, TIME INT,ROOM INT, STATUS VARCHAR(20)) "; ожидалось "HASH, ("
+Syntax error in SQL statement "CREATE TABLE BOOKINGS (PRIMARY KEY ID[*] INT,USERID INT, DAY DATE, TIME INT,ROOM INT, STATUS VARCHAR(20)) "; expected "HASH, ("; SQL statement:
+CREATE TABLE bookings (PRIMARY KEY id INT,UserID INT, day DATE, time INT,room INT, Status VARCHAR(20)) [42001-199]
+2019-05-19 18:49:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO BOOKINGS (USERID,DAY,TIME,ROOM,STATUS) VALUES (101883, SUN MAY[*] 19 18:49:44 MSK 2019 ,1140, 1054, 'Being_considered') "; ожидалось "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "INSERT INTO BOOKINGS (USERID,DAY,TIME,ROOM,STATUS) VALUES (101883, SUN MAY[*] 19 18:49:44 MSK 2019 ,1140, 1054, 'Being_considered') "; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, Sun May 19 18:49:44 MSK 2019 ,1140, 1054, 'Being_considered') [42001-199]
+2019-05-19 18:49:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 18:52:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "1996" в тип "DATE"
+Cannot parse "DATE" constant "1996"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 2019-4-19 ,1140, 1054, 'Being_considered') -- (101883, 1996, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 1996
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 18:52:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 18:55:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019 ,1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 18:55:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 18:57:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019 ,1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 18:57:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:00:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019, 1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:00:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:01:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019, 1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:01:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:03:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019, 1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:03:41 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:04:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019, 1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:04:07 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:05:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "0" в тип "DATE"
+Cannot parse "DATE" constant "0"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19/4/2019, 1140, 1054, 'Being_considered') -- (101883, 0, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: 0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:05:34 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:06:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "-2004" в тип "DATE"
+Cannot parse "DATE" constant "-2004"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 19-4-2019, 1140, 1054, 'Being_considered') -- (101883, -2004, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:27)
+	at Eltech.Vatnik.Main.main(Main.java:12)
+Caused by: java.lang.IllegalArgumentException: -2004
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:06:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:38)
+	at Eltech.Vatnik.Main.main(Main.java:14)
+2019-05-19 19:11:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Невозможно преобразование строки "1995" в тип "DATE"
+Cannot parse "DATE" constant "1995"; SQL statement:
+INSERT INTO bookings (userID,day,time,room,Status) VALUES (101883, 2019-05-19, 1140, 1054, 'Being_considered') -- (101883, 1995, 1140, 1054, 'Being_considered') [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueDate.parse(ValueDate.java:75)
+	at org.h2.value.Value.convertToDate(Value.java:1059)
+	at org.h2.value.Value.convertTo(Value.java:774)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:28)
+	at Eltech.Vatnik.Main.main(Main.java:13)
+Caused by: java.lang.IllegalArgumentException: 1995
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.value.ValueDate.parse(ValueDate.java:73)
+	... 12 more
+2019-05-19 19:11:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Метод не разрешен для запросов. Используйте execute или executeQuery вместо executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM bookings [90001-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:217)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:169)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at Eltech.Vatnik.Main.show(Main.java:39)
+	at Eltech.Vatnik.Main.main(Main.java:15)
+2019-05-20 15:00:05 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:23)
+	at Eltech.Vatnik.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 26 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 20 more
+2019-05-20 15:00:05 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at Eltech.Vatnik.Main.show(Main.java:37)
+	at Eltech.Vatnik.Main.main(Main.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 26 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 20 more
+2019-05-20 15:00:31 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:23)
+	at Eltech.Vatnik.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 26 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 20 more
+2019-05-20 15:00:31 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:90)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2787)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:441)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:404)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3343)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:95)
+	at org.h2.engine.Database.getPageStore(Database.java:2739)
+	at org.h2.engine.Database.open(Database.java:769)
+	at org.h2.engine.Database.openDatabase(Database.java:319)
+	at org.h2.engine.Database.<init>(Database.java:313)
+	at org.h2.engine.Engine.openSession(Engine.java:69)
+	at org.h2.engine.Engine.openSession(Engine.java:201)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:178)
+	at org.h2.engine.Engine.createSession(Engine.java:161)
+	at org.h2.engine.Engine.createSession(Engine.java:31)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:336)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:169)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:148)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at Eltech.Vatnik.Main.show(Main.java:37)
+	at Eltech.Vatnik.Main.main(Main.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]" [50000-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	... 26 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Laptop-V-Vatnik/IdeaProjects/auditoriumBooking/db/Booking.mv.db [1.4.199/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:883)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
+	... 20 more
+2019-05-20 15:11:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "bID" не найден
+Column "bID" not found [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3214)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3287)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:350)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:31)
+	at Eltech.Vatnik.Main.main(Main.java:13)
+2019-05-20 15:13:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "ID" не найден
+Column "ID" not found [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3214)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3287)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:350)
+	at Eltech.Vatnik.Booking.<init>(Booking.java:31)
+	at Eltech.Vatnik.Main.main(Main.java:13)
