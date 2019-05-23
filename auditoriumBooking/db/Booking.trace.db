@@ -602,3 +602,11 @@ Column "ID" not found [42122-199]
 	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:350)
 	at Eltech.Vatnik.Booking.<init>(Booking.java:31)
 	at Eltech.Vatnik.Main.main(Main.java:13)
+2019-05-21 17:26:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "SELECT * FRIM[*] BOOKINGS "
+Syntax error in SQL statement "SELECT * FRIM[*] BOOKINGS "; SQL statement:
+select * frim bookings [42000-199]
+2019-05-21 17:40:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "BOOKONGS" не найдена
+Table "BOOKONGS" not found; SQL statement:
+select *from bookongs [42102-199]
